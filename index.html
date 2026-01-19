@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookCrossing Trento</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            width: 100%;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            border-bottom: 2px solid #888888;
+            padding-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            color: #adadad;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+        
+        .intro-text {
+            font-size: 1.1rem;
+            color: #c0c0c0;
+            line-height: 1.8;
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid #888888;
+            border-radius: 4px;
+        }
+        
+        .timeline {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .timeline-item {
+            background: linear-gradient(135deg, rgba(136, 136, 136, 0.08) 0%, rgba(136, 136, 136, 0.02) 100%);
+            border: 1px solid #333;
+            border-left: 4px solid #888888;
+            border-radius: 8px;
+            padding: 35px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .timeline-item:hover {
+            background: linear-gradient(135deg, rgba(136, 136, 136, 0.12) 0%, rgba(136, 136, 136, 0.04) 100%);
+            border-color: #707070;
+            transform: translateX(8px);
+            box-shadow: 0 10px 30px rgba(136, 136, 136, 0.1);
+        }
+        
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #888888 0%, #707070 100%);
+            color: #ffffff;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        
+        .timeline-item h3 {
+            color: #888888;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .timeline-item p {
+            color: #d0d0d0;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin: 0;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(136, 136, 136, 0.1) 0%, rgba(136, 136, 136, 0.02) 100%);
+            border: 1px solid #333;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        
+        .cta-title {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .cta-description {
+            font-size: 1.1rem;
+            color: #c0c0c0;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #888888 0%, #707070 100%);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 2px solid #888888;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(135deg, #707070 0%, #606060 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(136, 136, 136, 0.3);
+            border-color: #707070;
+        }
+        
+        footer {
+            text-align: center;
+            border-top: 2px solid #333;
+            padding-top: 30px;
+            color: #808080;
+            font-size: 0.95rem;
+        }
+        
+        .footer-text {
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: #888888;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .social-links a:hover {
+            color: #ffffff;
+            border-bottom-color: #888888;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .timeline-item {
+                padding: 25px;
+            }
+            
+            .step-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .timeline-item h3 {
+                font-size: 1.3rem;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BookCrossing Trento</h1>
+            <p class="subtitle">Condividere Libri, Creare Comunità</p>
+            <p class="intro-text">Un progetto dedicato a liberare i libri nelle strade di Trento, permettendo ai lettori di scoprire e condividere storie affascinanti. BookCrossing trasforma la nostra città in una biblioteca pubblica dove ogni libro trova il suo prossimo lettore.</p>
+        </header>
+        
+        <section class="timeline">
+            <div class="timeline-item">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <h3>L'Idea Nasce</h3>
+                </div>
+                <p>Ho avuto l'idea di creare una scatola BookCrossing per le Manzoni. Una visione semplice ma potente: liberare i libri affinché trovino i lettori che ne hanno bisogno, trasformando la nostra città in una comunità che legge e condivide il piacere della lettura quotidiana.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <h3>Progettazione Condivisa</h3>
+                </div>
+                <p>Ho visitato gli uffici comunali per coinvolgere le istituzioni e condividere la progettazione della casetta del BookCrossing. Grazie alla collaborazione con l'amministrazione locale, il progetto ha ricevuto il sostegno ufficiale e i permessi necessari per realizzare una struttura che rispecchia i valori della comunità.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <h3>Mappa Interattiva</h3>
+                </div>
+                <p>Ho creato il sito web e su Google Maps ho collocato tutti i BookCrossing attivi di Trento. Ora chiunque può facilmente scoprire dove trovare i libri nascosti in città, contribuire alla comunità e condividere il piacere della lettura con altri lettori appassionati di ogni età.</p>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2 class="cta-title">Scopri i BookCrossing di Trento</h2>
+            <p class="cta-description">Visualizza la mappa interattiva per trovare tutti i BookCrossing attivi nel territorio. Lascia libri, scopri nuove storie e unisciti a una comunità che ama leggere.</p>
+            <a href="https://www.google.com/maps/d/u/0/edit?mid=1OA6iW3hRrvSyHUchYo7JvRmY3jzTBgU&usp=shari" class="btn">Visualizza la Mappa</a>
+        </section>
+        
+        <footer>
+            <p class="footer-text">BookCrossing Trento - Condividere libri, diffondere la cultura</p>
+            <div class="social-links">
+                <a href="mailto:bookcrossingtrento@gmail.com">Contattaci</a>
+            </div>
+            <p class="footer-text" style="margin-top: 20px; font-size: 0.85rem;">Realizzato con passione per la comunità di Trento</p>
+        </footer>
+    </div>
+</body>
+</html>
